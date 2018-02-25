@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-sm-10">
+        <table *ngIf="todos; else loading" class="table table-striped">
+            <thead>
+                <tr>
+                    <th><p> Title </p></th>
+                    <th></th>
+                    <th align="right" colspan="2" class="text-center">
+                        <p>Action</p>
+                    </th>
+                </tr>
+            </thead>
+
+            <tr *ngFor="let todo of todos">
+                <td >{{todo.name}}</td>
+                <td class="col-sm-1">
+                </td>
+
+                <td align="right" class="col-sm-1">    
+                    <a class="btn btn-sm btn-warning" [routerLink]="['edit',todo.id]">Edit</a>
+                </td>
+                <td align="right" class="col-sm-1">   
+                    <button class="btn btn-sm btn-danger" (click)="deleteTodo(todo)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<ng-template #loading>
+    <span>loading list...</span>
+</ng-template>

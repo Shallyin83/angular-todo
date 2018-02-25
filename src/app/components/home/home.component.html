@@ -1,0 +1,26 @@
+<h1 class="text-center">Welcome to HCL Group</h1>
+<hr />
+<div class="login-page" >
+    <div class="row">
+        <div class="col-md-4 push-md-4">
+            <h4>Login</h4>
+            <div *ngIf="errorMsg" class="alert alert-danger">{{errorMsg}}</div>
+            <form role="form" (ngSubmit)="f.form.valid && onLoggedin()" #f="ngForm" novalidate>
+                <div class="form-content">
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+                        <input type="text" name="email" required #email="ngModel" [(ngModel)]="model.email" class="form-control input-underline input-lg" placeholder="Email">
+                        <div *ngIf="f.submitted && !email.valid" class="text-danger">Email is required</div>
+                    </div>
+
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                        <input type="password" name="password" required #password="ngModel" [(ngModel)]="model.password" class="form-control input-underline input-lg" placeholder="Password">
+                        <div *ngIf="f.submitted && !password.valid" class="text-danger">Password is required</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" > Log in </button>
+                <!-- &nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a> -->
+            </form>
+        </div>
+    </div>
+</div>

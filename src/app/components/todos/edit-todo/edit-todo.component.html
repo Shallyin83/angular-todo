@@ -1,0 +1,8 @@
+<div class="card">
+    <div class="card-header">
+        Edit Todo
+    </div>
+    <div class="card-body">
+        <todo-form [todo]="todo$ | async" (addTodoEvent)="updateTodo($event)"></todo-form>
+    </div>
+</div>

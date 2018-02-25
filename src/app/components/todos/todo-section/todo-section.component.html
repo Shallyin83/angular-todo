@@ -1,0 +1,7 @@
+<h1> Todo list</h1>
+<todo-list (deleteTodoEvent)="deleteTodo($event)" [todos]="todos$ | async"></todo-list>
+<div class="row">
+    <div class="col-sm-10 text-right">
+        <a [routerLink]="['new']" class="btn btn-primary">Add Todo</a>
+    </div>
+</div>
